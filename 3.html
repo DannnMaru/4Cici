@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Love You</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <link rel="icon" type="image/png" href="hearth.png">
+</head>
+<body id="halaman3">
+    <div class="container3">
+        <div id="envelope" class="close">
+            <div class="wax-seal"></div>
+            <div class="front flap"></div>
+            <div class="front pocket"></div>
+            <div class="letter">
+                <div class="letter-corner corner-tl"></div>
+                <div class="letter-corner corner-br"></div>
+                <div class="message">
+                    <p>I Love You Cici</p>
+                    <p>Baik-Baik Ya Sayang</p>
+                </div>
+            </div>
+            <div class="hearts">
+                <div class="heart a1"></div>
+                <div class="heart a2"></div>
+                <div class="heart a3"></div>
+            </div>
+            <div class="sparkles">
+                <div class="sparkle s1"></div>
+                <div class="sparkle s2"></div>
+                <div class="sparkle s3"></div>
+            </div>
+        </div>
+    </div>
+    <div class="reset">
+        <button id="open">Buka Amplop</button>
+        <button id="reset">Tutup Amplop</button>
+    </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#open").click(function(){
+                $("#envelope").removeClass("close");
+                $("#envelope").addClass("open");
+            });
+            $("#reset").click(function(){
+                $("#envelope").removeClass("open");
+                $("#envelope").addClass("close");
+            });
+        });
+    </script>
+</body>
+</html>

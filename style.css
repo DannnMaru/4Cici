@@ -1,0 +1,498 @@
+/*  Body    */
+body {
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+    touch-action: none;
+    margin: 0%;
+    padding: 0%;
+}
+
+#input, textarea {
+    user-select: auto;
+    -webkit-user-select: auto;
+    touch-action: auto;
+}
+
+#Catatan {
+    font-size: 10px;
+    font-family: 'comic sans ms';
+    color: hsl(0, 0%, 100%);
+    word-spacing: 8px;
+    position: relative;
+    top: 155px;
+    animation: slideup 0.8s ease-out;
+}
+
+#error-message {
+    position: fixed;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: hsl(0, 100%, 65%);
+    color: #202124;
+    padding: 10px 10px;
+    border-radius: 8px;
+    font-size: 14px;
+    opacity: 0;
+    transition: top 0.8s ease, opacity 0.5s ease;
+    display: none;
+}
+
+@keyframes fadeInDown {
+    from {
+        top: -25px;
+        opacity: 0;
+    }
+    to {
+        top: 25px;
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOutUp {
+    from {
+        top: 25px;
+        opacity: 1;
+    }
+    to {
+        top: -25px;
+        opacity: 0;
+    }
+}
+
+@keyframes slideup {
+    from {
+        transform:translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform:translateY(-50)px;
+        opacity: 1;
+    }
+}
+
+@keyframes slidedown {
+    from {
+        transform:translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform:translateY(50)px;
+        opacity: 1;
+    }
+}
+
+
+
+
+
+/*  =====   Halaman Ke  Satu    =====    */
+
+#halaman1 {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    background-image: url(Yippi.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.container1 {
+    position: relative;
+}
+
+#HappyValentine {
+    font-size: 25px;
+    color: #ff2000;
+    font-family: monospace;
+    animation: slidedown 0.2s ease-in;
+}
+
+#love {
+    background: none;
+    border: none;
+    font-size: 150px;
+    cursor: pointer;
+    outline: none;
+    animation: bubblePop 1s ease-out, heartbeat 2s infinite ease-in-out 0.6s;
+    display: inline-block;
+}
+
+@keyframes bubblePop {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0.6);
+    }
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    30% { transform: scale(1.2); }
+    50% { transform: scale(1); }
+    70% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+
+
+
+/*  =====   Halaman Ke  Dua =====    */
+
+#halaman2 {
+    background-color: #202124;
+    color: #E8EAED;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 75vh;
+    text-align: center;
+}
+
+/*  =====    Logo   Google    =====  */
+.google-logo {
+    display: flex;
+    justify-content: center;
+    font-size: 85px;
+    font-family: 'Google Sans', 'Product Sans', Arial, sans-serif;
+}
+
+.google-logo span {
+    display: inline-block;
+}
+
+.blue { color: #4285F4; }
+.red { color: #EA4335; }
+.yellow { color: #FBBC05; }
+.green { color: #34A853; }
+
+/*  =====   Kotak   Pencarian   =====   */
+.search-box {
+    display: flex;
+    align-items: center;
+    background-color: #303134;
+    border: 1px solid #5F6368;
+    border-radius: 25px;
+    padding: 12px 16px;
+    width: 85%;
+    max-width: 600px;
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+.search-box:focus-within {
+    box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+    border-color: #8AB4F8;
+}
+
+#searchInput {
+    flex: 1;
+    font-size: 17px;
+    padding: 12px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: #E8EAED;
+}
+
+#searchButton {
+    background: none;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#searchButton:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+}
+
+#searchButton svg {
+    width: 20px;
+    height: 20px;
+    color: #E8EAED;
+}
+
+/*  =====    Trending   Search    =====  */
+.trending-container {
+    margin-top: 12px;
+    width: 90%;
+    max-width: 500px;
+    text-align: left;
+}
+
+.trending-title {
+    font-size: 14px;
+    color: #9AA0A6;
+    margin-bottom: 12px;
+}
+
+.trending-list {
+    list-style: none;
+    padding: 0;
+    pointer-events: none;
+    user-select: none;
+    touch-action: none;
+}
+
+.trending-list li {
+    padding: 10px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.trending-list li:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.trending-icon {
+    width: 0px;
+    height: 20px;
+    color: #E8EAED;
+}
+
+
+
+
+
+/*  =====   Halaman Ke  Tiga    =====    */
+
+#halaman3 {
+    background-image: url(Yippi.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    margin: 0;
+    min-height: 100vh;
+    flex-direction: column;
+    align-items: center;
+}
+
+:root {
+    --color-env: #FFB7C5;
+    --color-env2: #ff9aad;
+    --color-flap: #ff8da1;
+    --color-bg: #ed7fca;
+    --color-heart: #ff85a2;
+    --color-sparkle: #fff;
+    --wax-red: #c04040;
+}
+#envelope {
+    position: relative;
+    width: 280px;
+    height: 180px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    margin: 0 auto;
+    top: 150px;
+    background-color: var(--color-flap);
+    box-shadow: 0 4px 20px rgba(0,0,0,.1);
+    cursor: pointer;
+}
+.front {
+    position: absolute;
+    width: 0;
+    height: 0;
+    z-index: 3;
+}
+.flap {
+    border-left: 140px solid transparent;
+    border-right: 140px solid transparent;
+    border-bottom: 82px solid transparent;
+    border-top: 98px solid var(--color-flap);
+    transform-origin: top;
+    pointer-events: none;
+}
+.pocket {
+    border-left: 140px solid var(--color-env);
+    border-right: 140px solid var(--color-env);
+    border-bottom: 90px solid var(--color-env2);
+    border-top: 90px solid transparent;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+.letter {
+    position: relative;
+    background-color: #e0d9dd;
+    width: 90%;
+    margin: 0 auto;
+    height: 95%;
+    top: 5%;
+    border-radius: 6px;
+    box-shadow: 0 2px 26px rgba(0,0,0,.08);
+    padding: 15px;
+    box-sizing: border-box;
+}
+.letter:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-image: linear-gradient(180deg, 
+        rgba(255,255,255,0.00) 25%, 
+        rgba(255,231,236,0.70) 55%, 
+        rgba(255,231,236,1.00) 100%);
+}
+.message {
+    position: relative;
+    z-index: 2;
+    font-family: 'Handlee', cursive;
+    color: #d46a84;
+    text-align: center;
+    line-height: 1;
+    padding-top: 0px;
+}
+.message p {
+    margin: 10px 0;
+    font-size: 1.8em;
+    text-shadow: 0 2px 3px rgba(0,0,0,0.1);
+}
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+.container3 {
+    height: 380px;
+    margin-top: 50px;
+    animation: float 3s ease-in-out infinite;
+}
+.open .flap {
+    transform: rotateX(180deg);
+    transition: transform 0.4s ease, z-index 0.6s;
+    z-index: 1;
+}
+.close .flap {
+    transform: rotateX(0deg);
+    transition: transform 0.4s 0.6s ease, z-index 1s;
+    z-index: 5;
+}
+.close .letter {
+    transform: translateY(0px); 
+    transition: transform 0.4s ease, z-index 1s;
+    z-index: 1;
+}
+.open .letter {
+    transform: translateY(-60px) rotate(-2deg);
+    transition: transform 0.4s 0.6s ease, z-index 0.6s;
+    z-index: 2;
+}
+
+.letter-corner {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ffd1dc;
+    border-radius: 5px;
+    z-index: 3;
+}
+.corner-tl { top: 10px; left: 10px; border-right: none; border-bottom: none; }
+.corner-br { bottom: 10px; right: 10px; border-left: none; border-top: none; }
+.hearts, .sparkles {
+    position: absolute;
+    top: 90px;
+    left: 0;
+    right: 0;
+    z-index: 2;
+}
+.heart, .sparkle {
+    position: absolute;
+    bottom: 0;
+    pointer-events: none;
+}
+.heart:before,
+.heart:after {
+    content: "";
+    position: absolute;
+    left: 25px;
+    top: 0;
+    width: 25px;
+    height: 40px;
+    background: var(--color-heart);
+    border-radius: 25px 25px 0 0;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+}
+.heart:after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}
+.sparkle {
+    width: 8px;
+    height: 8px;
+    background: var(--color-sparkle);
+    border-radius: 50%;
+    animation: sparkleTwinkle 1s infinite;
+}
+.close .heart,
+.close .sparkle {
+    opacity: 0;
+    animation: none;
+}
+.a1 { left: 20%; transform: scale(0.6); animation: slideUp 4s linear infinite, sideSway 2s ease-in-out infinite alternate; }
+.a2 { left: 55%; animation: slideUp 5s linear infinite, sideSway 4s ease-in-out infinite alternate; }
+.a3 { left: 10%; transform: scale(0.8); animation: slideUp 7s linear infinite, sideSway 2s ease-in-out infinite alternate; }
+.s1 { left: 30%; animation: sparkleUp 3s linear infinite; }
+.s2 { left: 60%; animation: sparkleUp 4s linear infinite; }
+.s3 { left: 45%; animation: sparkleUp 5s linear infinite; }
+@keyframes slideUp {
+    0% { top: 0; }
+    100% { top: -600px; }
+}
+@keyframes sideSway {
+    0% { margin-left: 0; }
+    50% { margin-left: 50px; }
+    100% { margin-left: 0; }
+}
+@keyframes sparkleUp {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-500px) rotate(360deg); opacity: 0; }
+}
+@keyframes sparkleTwinkle {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.5); }
+}
+.reset {
+    text-align: center;
+    margin-top: 50px;
+}
+.reset button {
+    font-weight: 600;
+    transition: all 0.3s ease;
+    background-color: var(--color-env);
+    border: 2px solid var(--color-env2);
+    border-radius: 20px;
+    color: white;
+    padding: 12px 25px;
+    margin: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    font-family: Arial, sans-serif;
+}
+.reset button:hover {
+    background-color: var(--color-env2);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 7px 25px rgba(0,0,0,0.2);
+}

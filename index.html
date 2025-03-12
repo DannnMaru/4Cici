@@ -11,9 +11,6 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-            touch-action: none;
-            user-select: none;
         }
         html, body {
             background: url('Images/bg.webp')no-repeat center/cover;
@@ -26,6 +23,8 @@
             flex-direction: column;
             overflow: hidden;
             color: white;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
         }
         body::before {
             content: "";
@@ -35,13 +34,13 @@
             width: 100%;
             height: 100%;
             backdrop-filter: blur(1px);
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(10, 10, 10, 0.1);
             z-index: 1;
         }
         @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: scale(0.4);
+                transform: scale(0.5);
             }
             to {
                 opacity: 1;
@@ -100,7 +99,7 @@
             height: 75px;
             border-radius: 50%;
             border: none;
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.2);
             color: white;
             font-size: 50px;
             font-weight: bold;
@@ -116,7 +115,7 @@
             font-size: 10px;
         }
         .tombol:active {
-            background: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.3);
         }
         .opsilain {
             display: flex;
@@ -212,6 +211,12 @@
                 updatePIN();
             }
         }
+
+        window.addEventListener('load', function() {
+            const kontainer = document.querySelector(".kontainer");
+            kontainer.classList.remove("keluar");
+            kontainer.classList.add("fadeIn");  
+        });
 
         function emergency() {
             window.location.href = "https://wa.me/6281645414553";

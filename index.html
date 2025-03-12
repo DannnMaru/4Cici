@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kode</title>
+    <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 203.096 203.096"><g><path d="M153.976,73.236h-3.308V49.115C150.669,22.033,128.634,0,101.549,0C74.465,0,52.43,22.033,52.43,49.115v24.121H49.12c-9.649,0-17.5,7.851-17.5,17.5v94.859c0,9.649,7.851,17.5,17.5,17.5h104.856c9.649,0,17.5-7.851,17.5-17.5V90.736C171.476,81.087,163.626,73.236,153.976,73.236z M67.43,49.115C67.43,30.304,82.736,15,101.549,15c18.813,0,34.119,15.304,34.119,34.115v24.121H67.43V49.115z M156.476,185.596c0,1.355-1.145,2.5-2.5,2.5H49.12c-1.355,0-2.5-1.145-2.5-2.5V90.736c0-1.355,1.145-2.5,2.5-2.5H59.93h83.238h10.808c1.355,0,2.5,1.145,2.5,2.5V185.596z"/><path d="M101.547,116.309c-4.142,0-7.5,3.357-7.5,7.5v28.715c0,4.143,3.358,7.5,7.5,7.5c4.142,0,7.5-3.357,7.5-7.5v-28.715C109.047,119.666,105.689,116.309,101.547,116.309z"/></g></svg>'>
+    <link rel="preload" as="image" href="/Code/Images/bg.webp" type="image/webp">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: none;
+            user-select: none;
+        }
+        html, body {
+            background: url('/Code/Images/bg.webp')no-repeat center/cover;
+            font-family: -apple-system, BlinkMacSystemFont, "San Francisco", "Helvetica Neue", Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+            flex-direction: column;
+            overflow: hidden;
+            color: white;
+        }
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            backdrop-filter: blur(1px);
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.4);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        @keyframes slideUp {
+            from {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+            to {
+                opacity: 0;
+                transform: translateY(-150vh) scale(0.8);
+            }
+        }
+        .kontainer.keluar {
+            animation: slideUp 0.5s ease-in-out forwards;
+        }
+        .kontainer {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(1);
+            animation: fadeIn 0.5s ease-out forwards;
+            z-index: 2;
+        }
+        .KotakPIN {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            margin-bottom: 50px;
+        }
+        .inputPIN {
+            width: 15px;
+            height: 15px;
+            border: 2px solid rgb(255, 255, 255, 0.5);
+            border-radius: 50%;
+            transition: background 0.3s;
+        }
+        .inputPIN.filled {
+            background: rgb(255, 255, 255);
+        }
+        .numpad {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            justify-items: center;
+        }
+        .tombol {
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(255, 255, 255, 0.3);
+            color: white;
+            font-size: 50px;
+            font-weight: bold;
+            font-size: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            cursor: pointer;
+            line-height: 1;
+        }
+        .tombol span {
+            font-size: 10px;
+        }
+        .tombol:active {
+            background: rgba(255, 255, 255, 0.5);
+        }
+        .opsilain {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            font-size: 20px;
+            margin-top: 50px;
+        }
+        .tap {
+            cursor: pointer;
+            opacity: 0.7;
+        }
+        .tap:hover {
+            opacity: 1;
+        }
+        .shake {
+            animation: shake 0.3s ease-in-out;
+        }
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="kontainer">
+        <h2>Masukkan Kode</h2>
+        <div class="KotakPIN" id="pinBox">
+            <div class="inputPIN"></div>
+            <div class="inputPIN"></div>
+            <div class="inputPIN"></div>
+            <div class="inputPIN"></div>
+            <div class="inputPIN"></div>
+            <div class="inputPIN"></div>
+        </div>
+        <div class="numpad">
+            <button class="tombol" onclick="tekan(1)">1<span></span></button>
+            <button class="tombol" onclick="tekan(2)">2<span>ABC</span></button>
+            <button class="tombol" onclick="tekan(3)">3<span>DEF</span></button>
+            <button class="tombol" onclick="tekan(4)">4<span>GHI</span></button>
+            <button class="tombol" onclick="tekan(5)">5<span>JKL</span></button>
+            <button class="tombol" onclick="tekan(6)">6<span>MNO</span></button>
+            <button class="tombol" onclick="tekan(7)">7<span>PQRS</span></button>
+            <button class="tombol" onclick="tekan(8)">8<span>TUV</span></button>
+            <button class="tombol" onclick="tekan(9)">9<span>WXYZ</span></button>
+            <button class="tombol" style="grid-column: 2/3;" onclick="tekan(0)">0</button>
+        </div>
+        <div class="opsilain">
+            <div class="tap" onclick="emergency()">Darurat</div>
+            <div class="tap" onclick="cancel()">Hapus</div>       
+        </div>
+    </div>
+
+    <script>
+        let pin = "";
+        const maxDigit = 6;
+        const correctPIN = "271007";
+        const pinBox = document.getElementById("pinBox");
+        const kontainer = document.querySelector(".kontainer");
+
+        function tekan(num) {
+            if (pin.length < maxDigit) {
+                pin += num;
+                updatePIN();
+            }
+            if (pin.length === maxDigit) {
+                setTimeout(cekPIN, 200);
+            }
+        }
+
+        function updatePIN() {
+            document.querySelectorAll(".inputPIN").forEach((dot, index) => {
+                dot.classList.toggle("filled", index < pin.length);
+            });
+        }
+
+        function cekPIN() {
+            if (pin === correctPIN) {
+                const kontainer = document.querySelector(".kontainer")
+                kontainer.classList.add("keluar");
+
+                setTimeout(() => {
+                    window.location.href = "Find/Search.html"; 
+                }, 500);
+            } else {
+                if (!pinBox.classList.contains("shake")) {
+                    pinBox.classList.add("shake");
+                    setTimeout(() => pinBox.classList.remove("shake"), 500);
+                }
+                pin = "";
+                updatePIN();
+            }
+        }
+
+        function emergency() {
+            window.location.href = "https://wa.me/6281645414553";
+        }
+
+    function cancel() {
+        pin = "";
+        updatePIN();
+    }
+    </script>
+</body>
+</html>

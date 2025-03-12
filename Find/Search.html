@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+    <link rel="icon" type="image/svg+xml" href="Search.svg">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <img src="https://www.google.co.id/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google">
+    
+    <div class="kotak-pencarian">
+        <svg class="searchIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="9" r="7"/>
+            <path d="m21 21-6.35-6.35"/>
+        </svg>
+
+        <input type="text" id="cari" placeholder="Telusuri" autocomplete="off" oninput="clearButton()">
+        <div id="saran" class="kotak-saran"></div>
+        
+        <svg class="deleteIcon" id="clearBtn" onclick="clearSearch()" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m5 5 14 14M5 19 19 5"/>
+        </svg>
+    </div>
+</body>
+</html>

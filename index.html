@@ -213,10 +213,17 @@
         }
 
         window.addEventListener('load', function() {
-            const kontainer = document.querySelector(".kontainer");
-            kontainer.classList.remove("keluar");
-            kontainer.classList.add("fadeIn");  
-        });
+    const kontainer = document.querySelector(".kontainer");
+    
+    // Menghapus kelas keluar jika ada
+    kontainer.classList.remove("keluar");
+    
+    // Memberikan sedikit delay supaya animasi fadeIn bisa berjalan
+    setTimeout(function() {
+        kontainer.classList.add("fadeIn");
+    }, 50);  // Delay sangat singkat agar animasi bisa berjalan
+});
+
 
         function emergency() {
             window.location.href = "https://wa.me/6281645414553";
